@@ -3,9 +3,17 @@
 from tkinter import *
 window = Tk()
 
+# bufferExpression = [] 
+bufferString = ""
+
+def digit(value):
+	global bufferString
+	bufferString += value
+	print(bufferString)
 
 def input_key(param):
 	print (param + " has been inputed")
+	digit(param)
 
 Button(window, text="0", command=lambda: input_key("0")).pack()
 Button(window, text="1", command=lambda: input_key("1")).pack()
