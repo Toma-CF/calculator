@@ -6,13 +6,26 @@ window = Tk()
 # bufferExpression = [] 
 bufferString = ""
 
+def equal():
+	global bufferString
+	values = bufferString.split("+")
+		
+	rslt = 0;
+
+	for value in values: 
+		rslt += int(value)
+
+	bufferString = ""
+	print (rslt)
+	#"45+76"
+	# ['45', '76']
+
 def digit(value):
 	global bufferString
 	bufferString += value
-	print(bufferString)
+	print("Buffersting: " + bufferString)
 
 def input_key(param):
-	print (param + " has been inputed")
 	digit(param)
 
 Button(window, text="0", command=lambda: input_key("0")).pack()
@@ -26,6 +39,6 @@ Button(window, text="7", command=lambda: input_key("7")).pack()
 Button(window, text="8", command=lambda: input_key("8")).pack()
 Button(window, text="9", command=lambda: input_key("9")).pack()
 Button(window, text="+", command=lambda: input_key("+")).pack()
-Button(window, text="-", command=lambda: input_key("-")).pack()
+Button(window, text="=", command=lambda: equal()).pack()
 
 window.mainloop()
